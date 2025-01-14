@@ -91,12 +91,21 @@ class Meralist:
     
     def append(self, item):
         if self.n == self.size:
-            self._resize(self.size*2)
             #resize
+            self._resize(self.size*2)
         
         #append
+        # jodi jaiga khali thake shei khetre array er Nth jaigai value boshe
+        # jaa ager n e chilo ta toh  item e thake sheta abr notun n rakha hoi erpr 1 kre increment kre dei size
         self.Array [self.n] = item
         self.n=self.n+1
+    
+    def _resize(self, new_capacity):
+        #create a new array with new capacity
+        B_NEW_Array = self.__make_array(new_capacity)
+        self.size = new_capacity #already double size than Array
+        #copy Array element to B_NEW_Array
+        
         
             
     def __make_array(self, capacity):
