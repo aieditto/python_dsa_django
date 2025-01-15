@@ -15,5 +15,18 @@
     {% else %}
     <p>You did not come in</p>
     {% endif %}
+    <table border="1" width="500 px">
+        <tr>
+            <th>Course</th>
+            <th>Fee</th>
+        </tr>
+        {% for i in Courses%}
+        <tr>
+            <td>{{i.course}}</td>
+            <td>{{i.price}}<br></td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </body>
 </html>
