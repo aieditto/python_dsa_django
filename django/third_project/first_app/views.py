@@ -13,4 +13,5 @@ def details(request):
                    #this is for if else condition. This line are transfering data
                    #from views to html template or backend to frontend
                 # context={'Student':'Anis', 'Roll':'112063', 'Sec':'B', 'Age':10},
+                
                    )
