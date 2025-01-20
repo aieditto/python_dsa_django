@@ -88,6 +88,10 @@ class Meralist:
     def __len__(self):
         return self.n
     
+               
+    def __make_array(self, capacity):
+        #creates a C type array(static,referential) with size-->capacity
+        return (capacity*ctypes.py_object)()
     
     def append(self, item):
         if self.n == self.size:
@@ -105,9 +109,50 @@ class Meralist:
         B_NEW_Array = self.__make_array(new_capacity)
         self.size = new_capacity #already double size than Array
         #copy Array element to B_NEW_Array
+        for i in range (self.n):
+            B_NEW_Array[i]=self.Array[i]
         
+        #reasign Array
+        self.Array = B_NEW_Array
         
+    
+    #for printing the whole list
+    def __str__(self):
+        result = ''
+        for i in range (self.n):
+            result = result + str(self.Array[i])+','
+        return '['+ result[:-1] + ']' # result.strip(',') can use
+    
+    #for indexing
+    def __getitem__(self,index):
+        if 0 <= index <self.n:
+            return self.Array[index]
+        else:
+            return 'index not found'
+        
+    #popping
+    def pop(self):
+        if self.n==0:
+            return 'emptylist'
+        else:
+            print(self.Array[self.n-1])
+            self.n=self.n-1
             
-    def __make_array(self, capacity):
-        #creates a C type array(static,referential) with size-->capacity
-        return (capacity*ctypes.py_object)()
+            
+
+L=Meralist()
+L.append('Á')
+L.append('B')
+L.append(1)
+L.append('A')
+L.append('B')
+L.append(1)
+L.pop()
+L.pop()
+L.pop()
+
+print(L)
+print(L.__len__())  
+  
+ 
+
