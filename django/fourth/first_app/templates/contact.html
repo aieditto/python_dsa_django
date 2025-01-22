@@ -1,14 +1,3 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <img src="{% static '../static/images/st.jpg'%}" alt="">
-    From Contact Page
-    
-</body>
-</html>
+{% extends 'base.html'%}
+{% block title %}Contact Page{% endblock %}
+{% block info %}Contact Page {{block.super}}{% endblock %}
