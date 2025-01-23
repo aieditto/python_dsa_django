@@ -137,8 +137,19 @@ class Meralist:
         else:
             print(self.Array[self.n-1])
             self.n=self.n-1
-            
-            
+    
+    #clear
+    def clear(self):
+        self.n=0
+        self.size=1
+    
+    #find
+    def find(self,value):
+        for i in range(self.n):
+            if self.Array[i]==value:
+                return i  
+            else:
+                return 'value not found'      
 
 L=Meralist()
 L.append('Á')
@@ -147,11 +158,11 @@ L.append(1)
 L.append('A')
 L.append('B')
 L.append(1)
-L.pop()
-L.pop()
-L.pop()
 
-print(L)
+print(L.find('C'))
+L.clear()
+
+print(L.find(1))
 print(L.__len__())  
   
  
