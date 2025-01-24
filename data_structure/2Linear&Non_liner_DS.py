@@ -96,7 +96,7 @@ class Meralist:
     def append(self, item):
         if self.n == self.size:
             #resize
-            self._resize(self.size*2)
+            self.__resize(self.size*2)
         
         #append
         # jodi jaiga khali thake shei khetre array er Nth jaigai value boshe
@@ -104,7 +104,7 @@ class Meralist:
         self.Array [self.n] = item
         self.n=self.n+1
     
-    def _resize(self, new_capacity):
+    def __resize(self, new_capacity):
         #create a new array with new capacity
         B_NEW_Array = self.__make_array(new_capacity)
         self.size = new_capacity #already double size than Array
@@ -123,7 +123,7 @@ class Meralist:
             result = result + str(self.Array[i])+','
         return '['+ result[:-1] + ']' # result.strip(',') can use
     
-    #for indexing
+    #for indexing it helps to finds value by index
     def __getitem__(self,index):
         if 0 <= index <self.n:
             return self.Array[index]
@@ -143,14 +143,50 @@ class Meralist:
         self.n=0
         self.size=1
     
-    #find
+    #find use for searching value by their value
     def find(self,value):
         for i in range(self.n):
             if self.Array[i]==value:
                 return i  
-            else:
-                return 'value not found'      
+        return 'value not found'  
+    
+    
+    #insertion
+    def insertion(self, pos, value):
+        # if check and there is no space then make the array size double other wise next line
+        if self.size == self.n:
+            self.__resize(self.size*2) 
+        """now running a loop and traversing in reverse to find the give position .
+           The logic would be running to backward from the last number to the given position.
+           So that we can insert the value at the given position. so now swapping number next position for making space.
 
+        """   
+        for i in range(self.n,pos,-1):
+            self.Array[i] = self.Array[i-1]
+            # poisiton:5 <----position: 4
+        self.Array[pos]=value
+        self.n+=1
+    
+    #delete uses for deleting element by their index
+    def __delete__(self, pos):
+        item=self.Array[pos]
+        if 0<=pos<self.n:
+            for i in range (pos, self.n-1):
+                self.Array[i]=self.Array[i+1]
+            self.n-=1
+            print('Item Deleted:',item)
+        else:
+            return 'Position not found'
+    
+    #remove use for removing value by given value
+    def remove(self,value):
+        pos=self.find(value)
+        if type(pos) == int:
+            self.__delete__(pos)
+        else:
+            return pos
+            
+            
 L=Meralist()
 L.append('Á')
 L.append('B')
@@ -159,11 +195,27 @@ L.append('A')
 L.append('B')
 L.append(1)
 
-print(L.find('C'))
-L.clear()
+# print(L.find('B'))
+# # L.clear()
 
-print(L.find(1))
-print(L.__len__())  
-  
+# print(L.find(1))
+# L.insertion(2,7)
+# L.insertion(6,'Hello Hanki Panki')
+# print(L)
+# print(L.__len__())  
+
+L.__delete__(0)
+print(L)
+# print(L.__len__())  
+L.remove('A')
+print(L)
+
+'''
+Sort/Min/Max/Sum (Find function +)
+Extend
+Negative Indexing
+Slicing
+Merge
+'''
  
 
