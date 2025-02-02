@@ -41,7 +41,7 @@ class LinkedList:
     def __len__(self):
         return self.n
     
-    def inser_head(self,value):
+    # def inser_head(self,value):
         
 first=LinkedList()
 print(first.__len__())
