@@ -41,7 +41,19 @@ class LinkedList:
     def __len__(self):
         return self.n
     
-    # def inser_head(self,value):
+    def insert_head(self,value):
+        #Creating a new node
+        new_node=Node(value)
+        
+        #creating connection
+        new_node.next=self.head
+        
+        #reassign head
+        self.head=new_node
+        
+        #increment n
+        self.n=self.n+1
+        
         
 first=LinkedList()
 print(first.__len__())
