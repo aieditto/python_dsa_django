@@ -43,16 +43,18 @@ class LinkedList:
         return self.n
     
     def insert_head(self,value):
-        #new node
+
+        #Creating a new node
         new_node=Node(value)
         
-        #create connection
-        new_node.next= self.head
+        #creating connection
+        new_node.next=self.head
         
-        #reassgin head
-        self.head= new_node
+        #reassign head
+        self.head=new_node
         
-    
-        
+        #increment n
+        self.n=self.n+1
+                
 first=LinkedList()
 print(first.__len__())
