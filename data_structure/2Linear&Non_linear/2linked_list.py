@@ -9,7 +9,7 @@ Two variable need 1 is data and other is address of the next node
 #         self.data=value
 #         self.next=None
 
-# a = Node(1)
+# a= Node(1)
 # b= Node(2)
 # c= Node(3)
 # print(id(a)) #496-a   304-a     208-b   NOne-c
@@ -29,6 +29,7 @@ class Node:
     def __init__(self, value):
         self.data=value
         self.next=None
+        
 #creating a linked list
 class LinkedList:
     def __init__(self):
@@ -42,6 +43,7 @@ class LinkedList:
         return self.n
     
     def insert_head(self,value):
+
         #Creating a new node
         new_node=Node(value)
         
@@ -53,7 +55,6 @@ class LinkedList:
         
         #increment n
         self.n=self.n+1
-        
-        
+                
 first=LinkedList()
 print(first.__len__())
