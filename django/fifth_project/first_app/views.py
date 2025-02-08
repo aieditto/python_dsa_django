@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from . testforms import Studentform
 # Create your views here.
 def contact(request):
         return render(request,'first.html')
@@ -15,4 +16,7 @@ def form(request):
     else:
         return render (request,'forminfo.html')
 
-
+def django_form(request):
+    form= Studentform
+    return render (request,'django_form.html',{'form':form})
+    
