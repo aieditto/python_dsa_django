@@ -18,5 +18,6 @@ def form(request):
 
 def django_form(request):
     form= Studentform
+    print(request.POST)
     return render (request,'django_form.html',{'form':form})
     
